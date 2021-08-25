@@ -9,4 +9,5 @@ cli2/venv
 server/.vscode
 server/node_modules
 server/.env
-
+cli2/build
+cli2/dist
