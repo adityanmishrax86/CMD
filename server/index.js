@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const { auth } = require('express-openid-connect');
-const { requiresAuth } = require('express-openid-connect');
+// const { requiresAuth } = require('express-openid-connect');
 const jwt = require("express-jwt");
 const jwksRsa = require("jwks-rsa");
 const cors = require("cors");
@@ -53,7 +53,7 @@ app.get("/status", authorizeAccessToken, function (req, res) {
     res.status(200).send('Success')
 })
 
-// app.get("/", function (req, res) {
+// app.get("/profile", requiresAuth, function (req, res) {
 //     res.status(200).send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out')
 // })
 
