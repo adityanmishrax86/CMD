@@ -1,0 +1,12 @@
+.idea
+.vscode
+cli
+cli2/__pycache__
+cli2/.idea
+cli2/.vscode
+cli2/CLI.egg-info
+cli2/venv
+server/.vscode
+server/node_modules
+server/.env
+
