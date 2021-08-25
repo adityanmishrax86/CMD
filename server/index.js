@@ -53,9 +53,9 @@ app.get("/status", authorizeAccessToken, function (req, res) {
     res.status(200).send('Success')
 })
 
-// app.get("/profile", requiresAuth, function (req, res) {
-//     res.status(200).send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out')
-// })
+app.get("/", function (req, res) {
+    res.status(200).send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out')
+})
 
 app.get("/posts", authorizeAccessToken, async (req, res) => {
     await post.getPosts()
@@ -91,6 +91,6 @@ app.post("/post", authorizeAccessToken, m.checkFieldsPost, async (req, res) => {
         .catch(err => res.status(500).json({ message: err.message }))
 })
 
-app.listen(8080, () => {
+app.listen(process.env.PORT || 8080, () => {
     console.log("listening on 8080...");
 })
