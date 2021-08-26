@@ -88,7 +88,12 @@ def login(username, auth_url, audience):
     }
 
     result_from_server = requests.post(auth_url, data=data)
-    res_t = result_from_server.json()
+
+    res_t = ""
+    if(result_from_server.status_code == 404):
+        click.echo(result_from_server.text)
+    else:
+        res_t = result_from_server.json()
 
     if "error" in res_t:
         click.echo(f"{res_t['error_description']}")

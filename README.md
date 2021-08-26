@@ -1,7 +1,7 @@
 ## Setup
 
 ## Minimum Requirements
-- Python 3.6 or above
+- Python 3.7 or above
 - NodeJS 12.0 or above
 
 ### Steps for Mock Server Setup
@@ -10,7 +10,10 @@
 - Make sure your Application's Grant Types include Password. To learn how, read [Update Grant Types](https://auth0.com/docs/applications/update-grant-types).
 - Copy down client ID, Client Secret and Domain
 - Go to Dashboard > Applications > APIs, and select + Create API or [follow here](https://auth0.com/docs/get-started/set-up-apis).
-- Now inside the Server folder create an `.env` file and following environment variables
+- Go to [User's tenants settings](https://manage.auth0.com/#/tenant) and then go to Default Directory and add `Username-Password-Authentication` there.
+- Now inside the Server folder create an `.env` file and add following environment variables
+
+
 
 |Variables|values|
 |---|---|
@@ -34,18 +37,20 @@
 ### CLI setup
 
 - go to the cli2 directory
-- Install `setuptools` & `virualenv` by running `pip install setuptools virtualenv`
-- if you think you may have these installed already, then update them to the latest versions by providing the --upgrade flag. Always best to keep your tools updated.
+- Install `virualenv` by running `pip install virtualenv` [for windows] `apt install virtualenv` [for linux]
+- if you think you may have installed already, then update them to the latest versions by providing the --upgrade flag. Always best to keep your tools updated.
 - Create a virtual environment by typing in virtualenv **name for virtual env** ex: virtualenv venv
-- Activate the virtual env with the command `source venv/bin/activate` . You should be seeing venv in your terminal.
-- Install the tool in this virtual env now. The command for that is `python setup.py develop` . This would’ve installed the CLI tool to the virtual environment venv .
+- Activate the virtual env with the command `source venv/bin/activate` or `.\venv\Scripts\activate`[for windows] . You should be seeing venv in your terminal.
+- Install the setuptool in this virtual env now with `pip install setuptools` . Then run `python setup.py develop` . This would’ve installed the CLI tool to the virtual environment venv .
 
+**N.B** - for linux based use `python3` and `pip3` in place of `python` and `pip`.
 ### Running The Tool
 - now run `oms --help` it will show you all the available commands to run and get the results.
 
 # oms login
 - This command will ask username, auth_url and audience_url as input
  `oms login -u 'someone@exam.com' -a 'AUTH0_DOMAIN\outh\token -au 'Audience URL from the API'`
+
 - then it will ask for client id, client secret and password for the user. After succesfull login the context will saved to user's Home directory as json file named `context.json`
 
 # oms get
