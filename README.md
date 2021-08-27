@@ -4,7 +4,7 @@
 - NodeJS 12.0 or above
 
 ### Steps for Mock Server Setup
-- Select an Application Type of Regular Web Apps.
+- Go to Auth0, create an Application and select an Application Type of Regular Web Apps.
 - Add an Allowed Callback URL of http://localhost:PORT/callback.
 - Make sure your Application's Grant Types include Password. To learn how, read [Update Grant Types](https://auth0.com/docs/applications/update-grant-types).
 - Copy client ID, Client Secret and Domain
